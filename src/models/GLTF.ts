@@ -6,6 +6,7 @@ export default defineComponent({
   extends: Model,
   created() {
     const loader = new GLTFLoader()
+    this.$emit('before-load', loader)
     loader.load(this.src, (gltf) => {
       gltf.scene.animations = gltf.animations
       this.onLoad(gltf.scene)
